@@ -1,4 +1,4 @@
-if gcc -o basic_functions basic_functions.c
+if gcc -o $1 $1.c
 then
-./basic_functions
+./$1
 fi 
