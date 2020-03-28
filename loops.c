@@ -2,6 +2,8 @@
 
 long int get_factorial (int, int);
 void print_fibonacci_series (int);
+void print_odd_num_series(int);
+void print_even_num_series(int);
 
 long int get_factorial (int num, int fact) {
   return num <= 0 ? fact : get_factorial(num - 1, fact * num);
@@ -33,7 +35,15 @@ void print_odd_num_series(int limit) {
  }
 } 
 
-
+void print_even_num_series(int limit) {
+  int num = 0;
+ while (limit > -1)
+ {
+   is_even(num) ? printf("%d\n", num) : printf("%s", "");
+   limit--;
+   num++;
+ }
+} 
 
 int main(void) {
   int num, limit;
@@ -47,6 +57,8 @@ int main(void) {
   print_fibonacci_series(limit);
   printf("odd number series series:\n");
   print_odd_num_series(limit);
+  printf("even number series series:\n");
+  print_even_num_series(limit);
 
   return 0;
 }
