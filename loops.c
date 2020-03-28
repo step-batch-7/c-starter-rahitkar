@@ -4,6 +4,7 @@ long int get_factorial (int, int);
 void print_fibonacci_series (int);
 void print_odd_num_series(int);
 void print_even_num_series(int);
+void print_multiplication_table(int, int);
 
 long int get_factorial (int num, int fact) {
   return num <= 0 ? fact : get_factorial(num - 1, fact * num);
@@ -45,6 +46,16 @@ void print_even_num_series(int limit) {
  }
 } 
 
+void print_multiplication_table(int multiplayer, int limit) {
+  int num = 1;
+ while (limit > 0)
+ {
+   printf("%d * %d = %d\n", multiplayer, num, multiplayer * num);
+   limit--;
+   num++;
+ }
+} 
+
 int main(void) {
   int num, limit;
   printf("Enter the number: ");
@@ -59,6 +70,12 @@ int main(void) {
   print_odd_num_series(limit);
   printf("even number series series:\n");
   print_even_num_series(limit);
+
+  int multiplayer, upto;
+  printf("Enter the multiplayer then the table limit:\n");
+  scanf("%d %d", &multiplayer, &upto);
+  printf("multiplication table:\n");
+  print_multiplication_table(multiplayer, upto);
 
   return 0;
 }
