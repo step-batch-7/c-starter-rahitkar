@@ -7,6 +7,7 @@ long int cube(int);
 int gcd (int, int);
 int lcm (int, int);
 float simapal_interest(float, float, int);
+float compound_interest(float, float, int);
 
 unsigned char is_even(int num) {
   return !(num % 2);
@@ -40,6 +41,15 @@ float simapal_interest(float principal, float rate, int time) {
   return (principal * rate * time)/100;
 }
 
+float compound_interest(float principal, float rate, int time) {
+  if (time == 0)
+  {
+    return principal;
+  }
+  return compound_interest(principal + simapal_interest(principal, rate, 1), rate, time - 1);
+}
+
+
 int main (void) {
   int num, num1, num2;
 
@@ -61,6 +71,8 @@ int main (void) {
   printf("Enter the amount, rate of interest, and time period:\n");
   scanf("%f %f %d", &principal, &rate, &time);
   printf("simple interest of amount %f on rate of %f over a time of %d years is %f\n", principal, rate,time, simapal_interest(principal, rate, time));
+
+  printf("compound interest of amount %f on rate of %f over a time of %d years is %f\n", principal, rate,time, compound_interest(principal, rate, time) - principal);
 
   return 0;
 }
