@@ -9,6 +9,9 @@ int lcm (int, int);
 float simapal_interest(float, float, int);
 float compound_interest(float, float, int);
 float convert_to_centigrade(float);
+float convert_to_fahrenheit(float);
+float get_gretest(float, float);
+float get_gretest_of_three(float, float, float);
 
 unsigned char is_even(int num) {
   return !(num % 2);
@@ -58,7 +61,13 @@ float convert_to_fahrenheit(float centigrade) {
   return ((9 * centigrade) / 5) + 32;
 }
 
+float get_gretest(float num1, float num2) {
+  return (num1 < num2 ? num2 : num1);
+}
 
+float get_gretest_of_three(float num1,float num2, float num3) {
+  return get_gretest(get_gretest(num1, num2), num3);
+}
 
 int main (void) {
   int num, num1, num2;
@@ -93,6 +102,11 @@ int main (void) {
   printf("Enter the temperature in centigrade:");
   scanf("%f", &centigrade);
   printf("%f centigrade is %f fahrenheit\n", centigrade, convert_to_fahrenheit(centigrade));
+
+  float number1, number2, number3;
+  printf("Enter three numbers:\n");
+  scanf("%f %f %f", &number1, &number2, &number3);
+  printf("%f is the greatest among %f, %f, %f\n", get_gretest_of_three(number1, number2, number3), number1, number2, number3);
 
   return 0;
 }
