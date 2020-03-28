@@ -7,6 +7,7 @@ void print_even_num_series(int);
 void print_multiplication_table(int, int);
 int sum_of_n_num(int, int);
 int sum_of_n_num(int, int);
+void nth_num_series(int, int, int);
 
 long int get_factorial (int num, int fact) {
   return num <= 0 ? fact : get_factorial(num - 1, fact * num);
@@ -75,11 +76,21 @@ int product_of_n_num(int starting, int ending) {
   return product;
 }
 
+void print_nth_num_series(int starting, int ending, int nth_num) {
+  int starting_point = starting;
+  while (starting_point <= ending)
+  {
+    printf("%d\n", starting_point);
+    starting_point+= nth_num;
+  }
+}
+
 int main(void) {
-  int num, limit;
-  printf("Enter the number: ");
+  int num;
+  printf("Enter the number to get the factorial: ");
   scanf("%d", &num);
 
+  int limit;
   printf("factorial= %ld\n", get_factorial(num, 1));
   printf("Enter the limit of fibonacci series: ");
   scanf("%d", &limit);
@@ -111,6 +122,12 @@ int main(void) {
   scanf("%d %d", &from, &to);
   printf("odd numbers between %d to %d:\n", from, to);
   print_odd_num_series(from, to);
+
+  int start, end, nth_num;
+  printf("Enter the starting value, the ending value and the nth number to get the series:\n");
+  scanf("%d %d %d", &start, &end, &nth_num);
+  printf("the %dth numbers between %d to %d are:\n", nth_num, start, end);
+  print_nth_num_series(start, end, nth_num);
 
   return 0;
 }
