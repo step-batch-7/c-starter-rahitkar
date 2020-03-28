@@ -19,6 +19,22 @@ void print_fibonacci_series (int limit) {
   }
 }
 
+unsigned char is_even(int num) {
+  return !(num % 2);
+}
+
+void print_odd_num_series(int limit) {
+  int num = 0;
+ while (limit > -1)
+ {
+   !is_even(num) ? printf("%d\n", num) : printf("%s", "");
+   limit--;
+   num++;
+ }
+} 
+
+
+
 int main(void) {
   int num, limit;
   printf("Enter the number: ");
@@ -29,6 +45,8 @@ int main(void) {
   scanf("%d", &limit);
   printf("fibonacci series:\n");
   print_fibonacci_series(limit);
+  printf("odd number series series:\n");
+  print_odd_num_series(limit);
 
   return 0;
 }
