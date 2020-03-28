@@ -2,7 +2,7 @@
 
 long int get_factorial (int, int);
 void print_fibonacci_series (int);
-void print_odd_num_series(int);
+void print_odd_num_series(int, int);
 void print_even_num_series(int);
 void print_multiplication_table(int, int);
 int sum_of_n_num(int, int);
@@ -28,18 +28,18 @@ unsigned char is_even(int num) {
   return !(num % 2);
 }
 
-void print_odd_num_series(int limit) {
-  int num = 0;
- while (num <= limit)
+void print_odd_num_series(int starting,int limit) {
+  int starting_point = starting +1;
+ while (starting_point < limit)
  {
-   !is_even(num) ? printf("%d\n", num) : printf("%s", "");
-   num++;
+   !is_even(starting_point) ? printf("%d\n", starting_point) : printf("%s", "");
+   starting_point++;
  }
 } 
 
 void print_even_num_series(int limit) {
-  int num = 0;
- while (num <= limit)
+  int num = 1;
+ while (num < limit)
  {
    is_even(num) ? printf("%d\n", num) : printf("%s", "");
    num++;
@@ -90,7 +90,7 @@ int main(void) {
   printf("Enter the limit for odd and even number series:\n");
   scanf("%d", &ending_point);
   printf("odd number series series:\n");
-  print_odd_num_series(ending_point);
+  print_odd_num_series(1, ending_point);
   printf("even number series series:\n");
   print_even_num_series(ending_point);
 
@@ -101,10 +101,16 @@ int main(void) {
   print_multiplication_table(multiplayer, upto);
 
   int starting_value, ending_value;
-  printf("Enter the starting value then limit to get the sum:\n");
+  printf("Enter the starting value then limit to get the sum and product:\n");
   scanf("%d %d", &starting_value, &ending_value);
   printf("sum of %d to %d is %d\n", starting_value, ending_value, sum_of_n_num(starting_value, ending_value));
   printf("product of %d to %d is %d\n", starting_value, ending_value, product_of_n_num(starting_value, ending_value));
+
+  int from, to;
+  printf("Enter the starting value and the ending value to get the odd numbers between them:\n");
+  scanf("%d %d", &from, &to);
+  printf("odd numbers between %d to %d:\n", from, to);
+  print_odd_num_series(from, to);
 
   return 0;
 }
