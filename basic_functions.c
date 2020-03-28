@@ -8,6 +8,7 @@ int gcd (int, int);
 int lcm (int, int);
 float simapal_interest(float, float, int);
 float compound_interest(float, float, int);
+float convert_to_centigrade(float);
 
 unsigned char is_even(int num) {
   return !(num % 2);
@@ -49,6 +50,15 @@ float compound_interest(float principal, float rate, int time) {
   return compound_interest(principal + simapal_interest(principal, rate, 1), rate, time - 1);
 }
 
+float convert_to_centigrade(float fahrenheit) {
+  return ((fahrenheit - 32) * 5 )/ 9;
+}
+
+float convert_to_fahrenheit(float centigrade) {
+  return ((9 * centigrade) / 5) + 32;
+}
+
+
 
 int main (void) {
   int num, num1, num2;
@@ -73,6 +83,16 @@ int main (void) {
   printf("simple interest of amount %f on rate of %f over a time of %d years is %f\n", principal, rate,time, simapal_interest(principal, rate, time));
 
   printf("compound interest of amount %f on rate of %f over a time of %d years is %f\n", principal, rate,time, compound_interest(principal, rate, time) - principal);
+
+  float fahrenheit;
+  printf("Enter the temperature in fahrenheit:");
+  scanf("%f", &fahrenheit);
+  printf("%f fahrenheit is %f centigrade\n", fahrenheit, convert_to_centigrade(fahrenheit));
+
+  float centigrade;
+  printf("Enter the temperature in centigrade:");
+  scanf("%f", &centigrade);
+  printf("%f centigrade is %f fahrenheit\n", centigrade, convert_to_fahrenheit(centigrade));
 
   return 0;
 }
