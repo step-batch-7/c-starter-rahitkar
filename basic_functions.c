@@ -12,6 +12,7 @@ float convert_to_centigrade(float);
 float convert_to_fahrenheit(float);
 float get_gretest(float, float);
 float get_gretest_of_three(float, float, float);
+float get_avarage_of_three(float, float, float);
 
 unsigned char is_even(int num) {
   return !(num % 2);
@@ -69,6 +70,11 @@ float get_gretest_of_three(float num1,float num2, float num3) {
   return get_gretest(get_gretest(num1, num2), num3);
 }
 
+float get_avarage_of_three(float num1, float num2, float num3) {
+  return (num1 + num2 + num3) / 3;
+}
+
+
 int main (void) {
   int num, num1, num2;
 
@@ -107,6 +113,8 @@ int main (void) {
   printf("Enter three numbers:\n");
   scanf("%f %f %f", &number1, &number2, &number3);
   printf("%f is the greatest among %f, %f, %f\n", get_gretest_of_three(number1, number2, number3), number1, number2, number3);
+
+  printf("%f is the avarage of %f, %f, %f\n", get_avarage_of_three(number1, number2, number3), number1, number2, number3);
 
   return 0;
 }
