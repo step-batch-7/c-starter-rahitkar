@@ -1,9 +1,14 @@
 #include <stdio.h>
 
 unsigned char is_even(int);
+unsigned char is_odd(int);
 
 unsigned char is_even(int num) {
   return !(num % 2);
+}
+
+unsigned char is_odd(int num) {
+  return !is_even(num);
 }
 
 int main (void) {
@@ -11,13 +16,7 @@ int main (void) {
 
   printf("give your number: ");
   scanf("%d", &num);
-  
-  if (is_even(num))
-  {
-    printf("%d is even\n", num);
-    return 0;
-  }
 
-  printf("%d is not even\n", num);
-  return 0;
+  printf("%d is %s\n", num, is_even(num) ? "even" : "not even");
+  printf("%d is %s\n", num, is_odd(num) ? "odd" : "not odd");
 }
