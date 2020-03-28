@@ -11,6 +11,10 @@ unsigned char is_odd(int num) {
   return !is_even(num);
 }
 
+long int square (int num) {
+  return num * num;
+}
+
 int main (void) {
   int num;
 
@@ -19,4 +23,7 @@ int main (void) {
 
   printf("%d is %s\n", num, is_even(num) ? "even" : "not even");
   printf("%d is %s\n", num, is_odd(num) ? "odd" : "not odd");
+  printf("%ld is square of %d\n", square(num), num);
+
+  return 0;
 }
