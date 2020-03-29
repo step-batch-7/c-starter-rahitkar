@@ -8,6 +8,8 @@ void print_multiplication_table(int, int);
 int sum_of_n_num(int, int);
 int sum_of_n_num(int, int);
 void nth_num_series(int, int, int);
+int sum_of_even_num_between_two_num(int, int);
+void print_backwards_odd_num_series(int, int);
 
 long int get_factorial (int num, int fact) {
   return num <= 0 ? fact : get_factorial(num - 1, fact * num);
@@ -29,7 +31,7 @@ unsigned char is_even(int num) {
   return !(num % 2);
 }
 
-void print_odd_num_series(int starting,int limit) {
+void print_odd_num_series(int starting, int limit) {
   int starting_point = starting +1;
  while (starting_point < limit)
  {
@@ -85,6 +87,25 @@ void print_nth_num_series(int starting, int ending, int nth_num) {
   }
 }
 
+int sum_of_even_num_between_two_num(int starting, int ending) {
+  int starting_point = starting + 1, sum = 0;
+  while (starting_point < ending) 
+  {
+    is_even(starting_point) ? sum += starting_point : sum;
+   starting_point++;
+  }
+  return sum;
+}
+
+void print_backwards_odd_num_series(int starting, int limit) {
+  int ending_value = limit - 1;
+ while (starting < ending_value)
+ {
+   !is_even(ending_value) ? printf("%d\n", ending_value) : printf("%s", "");
+   ending_value--;
+ }
+} 
+
 int main(void) {
   int num;
   printf("Enter the number to get the factorial: ");
@@ -97,13 +118,13 @@ int main(void) {
   printf("fibonacci series:\n");
   print_fibonacci_series(limit);
 
-  int ending_point;
+  int ending_num_value;
   printf("Enter the limit for odd and even number series:\n");
-  scanf("%d", &ending_point);
-  printf("odd number series series:\n");
-  print_odd_num_series(1, ending_point);
-  printf("even number series series:\n");
-  print_even_num_series(ending_point);
+  scanf("%d", &ending_num_value);
+  printf("odd number series series between 1 to %d:\n", ending_num_value);
+  print_odd_num_series(1, ending_num_value);
+  printf("even number series series between 1 to %d:\n", ending_num_value);
+  print_even_num_series(ending_num_value);
 
   int multiplayer, upto;
   printf("Enter the multiplayer then the table limit:\n");
@@ -128,6 +149,17 @@ int main(void) {
   scanf("%d %d %d", &start, &end, &nth_num);
   printf("the %dth numbers between %d to %d are:\n", nth_num, start, end);
   print_nth_num_series(start, end, nth_num);
+
+  int starting_point, ending_point;
+  printf("Enter the staring value and ending value to get the sum of even numbers between them:\n");
+  scanf("%d %d", &starting_point, &ending_point);
+  printf("sum of even numbers between %d and %d is %d\n", starting_point, ending_point, sum_of_even_num_between_two_num(starting_point, ending_point));
+
+  int starting_number, ending_number;
+  printf("Enter the staring value and ending value to get the backword odd number series:\n");
+  scanf("%d %d", &starting_number, &ending_number);
+  printf("backwords odd numbers between %d to %d are:\n", starting_number, ending_number);
+  print_backwards_odd_num_series(starting_number, ending_number);
 
   return 0;
 }
