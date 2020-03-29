@@ -107,59 +107,52 @@ void print_backwards_odd_num_series(int starting, int limit) {
 } 
 
 int main(void) {
-  int num;
+  int num, limit;
   printf("Enter the number to get the factorial: ");
   scanf("%d", &num);
 
-  int limit;
   printf("factorial= %ld\n", get_factorial(num, 1));
   printf("Enter the limit of fibonacci series: ");
   scanf("%d", &limit);
   printf("fibonacci series:\n");
   print_fibonacci_series(limit);
 
-  int ending_num_value;
   printf("Enter the limit for odd and even number series:\n");
-  scanf("%d", &ending_num_value);
-  printf("odd number series series between 1 to %d:\n", ending_num_value);
-  print_odd_num_series(1, ending_num_value);
-  printf("even number series series between 1 to %d:\n", ending_num_value);
-  print_even_num_series(ending_num_value);
+  scanf("%d", &limit);
+  printf("odd numbers between 1 to %d:\n", limit);
+  print_odd_num_series(1, limit);
+  printf("even numbers between 1 to %d:\n", limit);
+  print_even_num_series(limit);
 
-  int multiplayer, upto;
   printf("Enter the multiplayer then the table limit:\n");
-  scanf("%d %d", &multiplayer, &upto);
+  scanf("%d %d", &num, &limit);
   printf("multiplication table:\n");
-  print_multiplication_table(multiplayer, upto);
+  print_multiplication_table(num, limit);
 
-  int starting_value, ending_value;
   printf("Enter the starting value then limit to get the sum and product:\n");
-  scanf("%d %d", &starting_value, &ending_value);
-  printf("sum of %d to %d is %d\n", starting_value, ending_value, sum_of_n_num(starting_value, ending_value));
-  printf("product of %d to %d is %d\n", starting_value, ending_value, product_of_n_num(starting_value, ending_value));
+  scanf("%d %d", &num, &limit);
+  printf("sum of %d to %d is %d\n", num, limit, sum_of_n_num(num, limit));
+  printf("product of %d to %d is %d\n", num, limit, product_of_n_num(num, limit));
 
-  int from, to;
   printf("Enter the starting value and the ending value to get the odd numbers between them:\n");
-  scanf("%d %d", &from, &to);
-  printf("odd numbers between %d to %d:\n", from, to);
-  print_odd_num_series(from, to);
+  scanf("%d %d", &num, &limit);
+  printf("odd numbers between %d to %d:\n", num, limit);
+  print_odd_num_series(num, limit);
 
-  int start, end, nth_num;
+  int nth_num;
   printf("Enter the starting value, the ending value and the nth number to get the series:\n");
-  scanf("%d %d %d", &start, &end, &nth_num);
-  printf("the %dth numbers between %d to %d are:\n", nth_num, start, end);
-  print_nth_num_series(start, end, nth_num);
+  scanf("%d %d %d", &num, &limit, &nth_num);
+  printf("the %dth numbers between %d to %d are:\n", nth_num, num, limit);
+  print_nth_num_series(num, limit, nth_num);
 
-  int starting_point, ending_point;
   printf("Enter the staring value and ending value to get the sum of even numbers between them:\n");
-  scanf("%d %d", &starting_point, &ending_point);
-  printf("sum of even numbers between %d and %d is %d\n", starting_point, ending_point, sum_of_even_num_between_two_num(starting_point, ending_point));
+  scanf("%d %d", &num, &limit);
+  printf("sum of even numbers between %d and %d is %d\n", num, limit, sum_of_even_num_between_two_num(num, limit));
 
-  int starting_number, ending_number;
   printf("Enter the staring value and ending value to get the backword odd number series:\n");
-  scanf("%d %d", &starting_number, &ending_number);
-  printf("backwords odd numbers between %d to %d are:\n", starting_number, ending_number);
-  print_backwards_odd_num_series(starting_number, ending_number);
+  scanf("%d %d", &num, &limit);
+  printf("backwords odd numbers between %d to %d are:\n", num, limit);
+  print_backwards_odd_num_series(num, limit);
 
   return 0;
 }
