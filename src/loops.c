@@ -1,7 +1,8 @@
 #include <stdio.h>
 
+void print_series (int *, int);
 long int get_factorial (int, int);
-void print_fibonacci_series (int);
+void fill_fibonacci_series (int *, int);
 void print_odd_num_series(int, int);
 void print_even_num_series(int);
 void print_multiplication_table(int, int);
@@ -11,19 +12,25 @@ void nth_num_series(int, int, int);
 int sum_of_even_num_between_two_num(int, int);
 void print_backwards_odd_num_series(int, int);
 
+void print_series (int *array,int length) {
+  for (int i = 0; i < length; i++)
+  {
+    printf("%d\n", array[i]);
+  }
+}
+
 long int get_factorial (int num, int fact) {
   return num <= 0 ? fact : get_factorial(num - 1, fact * num);
 }
 
-void print_fibonacci_series (int limit) {
-  int term1 = 0, term2 = 1, value_holder;
-  while (limit != 0) 
+void fill_fibonacci_series (int *series,int length) {
+  int previous_term = 0, nxt_term = 1, value_holder;
+  for (int i = 0; i < length; i++)
   {
-  printf("%d\n", term2);
-  value_holder = term2;
-  term2 += term1;
-  term1 = value_holder;
-  limit--;
+    series[i] = nxt_term;
+    value_holder = nxt_term;
+    nxt_term += previous_term;
+    previous_term = value_holder;
   }
 }
 
@@ -108,14 +115,18 @@ void print_backwards_odd_num_series(int starting, int limit) {
 
 int main(void) {
   int num, limit;
+  int fibonacci_seeies[100];
+
   printf("Enter the number to get the factorial: ");
   scanf("%d", &num);
 
   printf("factorial= %ld\n", get_factorial(num, 1));
+
   printf("Enter the limit of fibonacci series: ");
   scanf("%d", &limit);
   printf("fibonacci series:\n");
-  print_fibonacci_series(limit);
+  fill_fibonacci_series(fibonacci_seeies, limit);
+  print_series(fibonacci_seeies, limit);
 
   printf("Enter the limit for odd and even number series:\n");
   scanf("%d", &limit);
