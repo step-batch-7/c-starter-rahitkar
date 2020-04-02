@@ -1,26 +1,14 @@
 # include <stdio.h>
 
-void print_currency_table(long int);
-long int print_currency(long int, int);
+void get_count (long int, int *, int *);
 
-long int print_currency(long int amount, int currency) {
-  printf("%d x Rs %d\n", (amount / currency), currency);
-
-  return amount - currency * (amount / currency);
-}
-
-void print_currency_table(long int amount) {
-  long int remaning_amount = amount;
-  printf("Amount: Rs. %ld\n\n", remaning_amount);
-
-  remaning_amount = print_currency(remaning_amount, 2000);
-  remaning_amount = print_currency(remaning_amount, 500);
-  remaning_amount = print_currency(remaning_amount, 200);
-  remaning_amount = print_currency(remaning_amount, 100);
-  remaning_amount = print_currency(remaning_amount, 50);
-  remaning_amount = print_currency(remaning_amount, 10);
-  remaning_amount = print_currency(remaning_amount, 5);
-  remaning_amount = print_currency(remaning_amount, 1);
+void get_count (long int amount, int *notes, int *note_count) {
+  int remaning_amount = amount;
+  for (int i = 0; i < 8; i++)
+  {
+    note_count[i] = remaning_amount / notes[i];
+    remaning_amount -= note_count[i] * notes[i];
+  }
 }
 
 int main (void) {
@@ -28,7 +16,15 @@ int main (void) {
 
   printf("Enter the amount: ");
   scanf("%ld", &amount);
-  print_currency_table(amount);
+  printf("Amount: Rs. %ld\n\n", amount);
 
+  int notes[8] = {2000, 500, 200, 100, 50, 10, 5, 1};
+  int note_count[8];
+  get_count(amount, notes, note_count);
+
+    for (int i = 0; i < 8; i++)
+  {
+    printf("%d x Rs %d\n", note_count[i], notes[i]);
+  }
   return 0;
 }
