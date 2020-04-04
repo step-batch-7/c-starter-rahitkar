@@ -17,16 +17,20 @@ void change(int *code, int length)
 
 int main(void)
 {
-  int genome_sequence[9] = {116, 98, 32, 112, 98, 101, 98, 97, 110};
-  int letters[9];
-
-  for (int i = 0; i < 9; i++)
+  int length;
+  printf("enter the length of the code: ");
+  scanf("%d", &length);
+  int genome_sequence[length], letters[length];
+  printf("Now enter the coded value for every letter:\n");
+  for (int i = 0; i < length; i++)
   {
+    scanf("%d", &genome_sequence[i]);
     letters[i] = genome_sequence[i];
   }
-  change(letters, 9);
 
-  for (int i = 0; i < 9; i++)
+  change(letters, length);
+
+  for (int i = 0; i < length; i++)
   {
     printf("%c",letters[i]);
   }
